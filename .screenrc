@@ -1,0 +1,36 @@
+# globals
+vbell 		on
+vbell_msg	"!"
+vbellwait	1
+
+activity	"activity on %n (%t)"
+bell_msg	"bell on %n (%t)"
+defhstatus	"screen: ^En (^Et)"
+shelltitle	"$ |sh:"
+
+autodetach	on
+defutf8		on
+
+zombie		^D^C
+escape		^Aa
+termcaoinfo	xterm|xterm-256color|xterms|xs|rxvt ti@:te@
+
+windowlist title	" Num%+3=| Fl%+3=| Name"
+windowlist string	" %3n%+3=| %f%+3=| %t"
+
+backtick 1 60 60 $HOME/.screen/temp.sh
+
+hardstatus alwayslastline
+hardstatus string 	"%{= kY}[ %{R}%H %{Y}][ %{g}load[%l] %{Y}][ %{B}%d/%m/%Y %c %{Y}][ %1` ][ %{r}%=%?%-w%?(%n%f %t)%?%+w%? %{Y}]"
+
+defscrollback	5000
+
+bindkey -k [29~ windowlist -b
+
+screen -t bash 0 bash
+screen -t mc 6 mc
+screen -t asterisk 7 asterisk -r
+screen -t htop 8 htop
+screen -t log 9 journalctl -fe
+
+select 0
