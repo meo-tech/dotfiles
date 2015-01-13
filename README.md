@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-diverse .files
+diverse dotFiles
